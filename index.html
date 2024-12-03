@@ -96,8 +96,7 @@
     <script>
 
         
-        function showHome()
-        {
+        function showHome(){
             /*
                 loop through all creatures
                 
@@ -110,19 +109,28 @@
                 const myNodeList = document.querySelectorAll("div.creature");
                 console.log(myNodeList);
 
-                for(let x=0;x<myNodeList.length;x++){
-                    myNodeList[x].style.backgroundColor = "yellow";
+                for(let x=0;x<myNodeList.length;x++) {
+
+                    const myHome = myNodeList[x].dataset.home;
+                    //alert(myHome);
+
+                switch(myHome){
+                    case "land": 
+                        myNodeList[x].style.backgroundColor = "green";
+                    break;
+
+                    case "water":
+                        myNodeList[x].style.backgroundColor = "blue";
+                    break;
+
+                    case "air": 
+                        myNodeList[x].style.backgroundColor = "yellow";
+                    break;
                 }
-
-
-
-
-
-
-               //alert("showHome()");
-            
+        }
+    
         }//end showHome()
-        
+
         function showType()
         {
             /*
@@ -131,7 +139,26 @@
                 if creature is an animal, border color solid red
                 if creature is an insect, border color is dashed orange
             */
-            alert("showType()");
+            
+            const myNodeList = document.querySelectorAll("div.creature");
+            console.log(myNodeList);
+
+            for(let x=0;x<myNodeList.length;x++) {
+
+                const myType = myNodeList[x].dataset.creatureType;
+                
+                switch(myType){
+                    case "animal":
+                        myNodeList[x].style.border = "2px solid red";
+                    break;
+                    
+                    case "insect":
+                        myNodeList[x].style.border = "2px dashed orange";
+                    break;
+        
+                }
+            }
+        
         }//end showType()
 
         function clearAll()
@@ -143,7 +170,17 @@
                 clear background color to white
                 
             */
-            alert("clearAll()");
+            const myNodeList = document.querySelectorAll("div.creature");
+            console.log(myNodeList);
+
+            for(let x=0;x<myNodeList.length;x++) {
+                myNodeList[x].style.backgroundColor = "white";
+                myNodeList[x].style.border = "2px solid black";
+            }
+        
+
+
+
         }//end clearAll()
 
     </script>    
